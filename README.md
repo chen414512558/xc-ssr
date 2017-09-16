@@ -41,3 +41,5 @@ transform-runtime: 运行时  提取公共的项目
 jenkins: 前端持续集成
 f2etest-> 代码录像
 本地开发-> 提交 -> 同步给老爷爷jenkins -> test e2e -> 没有出错的话  执行编译 -> prod
+
+临时版本
