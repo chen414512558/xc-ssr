@@ -1,18 +1,20 @@
 language: node_js
-
 node_js:
- - 7.6.0
-
+- 7.6.0
 cache:
   directories:
-    - "node_modules"
-
+  - node_modules
 addons:
   ssh_known_hosts: 47.95.238.142
   apt:
     packages:
     - sshpass
-
 after_success:
   - export SSHPASS=$DEPLOY_PASS
-  - sshpass -p YongXingChen10 scp -o stricthostkeychecking=no -r ./* root@47.95.238.142:~/mynode/czh-ssr/
+  - sshpass -p $PASSWORD scp -o stricthostkeychecking=no -r ./src/* $USER@47.95.238.142:~/mynode/czh-ssr/
+  - sshpass -p $PASSWORD scp -o stricthostkeychecking=no -r ./test/* $USER@47.95.238.142:~/mynode/czh-ssr/
+  - sshpass -p $PASSWORD scp -o stricthostkeychecking=no -r ./reports/* $USER@47.95.238.142:~/mynode/czh-ssr/
+env:
+  global:
+  - secure: NRel10OrlspXteVoPdmgrkmW+KJp7/00GK9GXfbmVnGLXQU6eEgLdPId/QB43E6HP087JQzzRQvNCFnzOzaHDjWZ9HLOGqhlzZtSoL9oSDbXoCHBglFQd771NeZ0a2Paz1uy9gr6GLGTisqv+Mk3XK+VBknpspz91sXT8p+Cv6Fbd9tcRj9wXM+JvVa7vjyErZn/aIzOr8j5fy4mT8GyPPZ8FIqHBOg/tqtJ/WRNyhBcTbMGe8zi9Ji9MCgVMU6+fc9jzPhi0404MZSw3qjnt1VQB22SM+JRjCcN/R7Pn7avtXKp4kooy6upqQd/MFGSa53m/4XaDFxofzYT5/y+/B3IuRVXMPZzvCTC84ux7TqqlR8JxnPOeNDCLdHNM/RgIgja8nMOYMrR+H0W9PlDcjzXsnT+w1kMakLWuFqDn1ZAx6jows3hUYozgzeUroLhKY90l2A/DYZ3VcU2WWfyhBMxLF+LNSF/VeqJjXGWkLA0muK6G3e6dGZmx1HnblyXwdQzdGSUOvbVz1eTaP1/vNCIUABre2pUOben5JeBBYb05Qpt61AjIwLBwqg2QYcAWGn+VwxU137zAXaWWpXqAOtBDtez+mLBf1m8cjQo9IvSu2FcMiVdhjSZ8Kbw7gTEfXhrv5jhq9eksJjuxEhb3YF0GzIF5JxRiyqkPa6WlU8=
+  - secure: iR+1h5Ypuf7sPi+A9W4lY9mOUSUSM95KSQXsuNvzMSy/1uEDKZuHJIHFXjIYff9DWfCTYiv+6QbICdsneDQrWqJQe9qie2przKgvTqJG3XUpGuEfqkdhsM1S9J1RQfuVWiRrClFW0ueG35YUmjbPclH3QivjAAxtICz73kuLMdunZzOaXo0d6r6ok8wD/UdysLUj1J79lL6wbY8qT1/8JHrmtum9jrZGhJhbbP6ZD9Co2yTBYBKfrjgbWGB3odVtVIfa0pTR1bSVQvPW0eAcEvtOz7hF918ndiw7++NzPboM49zq/RGvuo0xB+uNFCx9jnyY083OoibXNHW1Xpi1MpYqcIJYm5CBy+TOAigkO2d5u7adk6uwLgP8Kd75Mh5Yf2K8mXJfuz8xadhTt9lq+Lb/PIA/2xQbwQsbPs++K9lzGpO4sJpoy1w8w8hUrJ3DiOzCX3FhjtoGPfQdfg8e2bMZxbKPalfn3VWKkQrN0xEbZ3PeFrh4ysgkAHGR8935B9YjoC9eFQUsZ6tRcTtfXi3qXuyOtUV6LQ3zlv/ENhX69zvQrsIH2CgfFRru4WFmlNv/cwpdzPipe6s4UC9ZaZoqZbogjEf9DVB76D0EZEECPYmbaBTkAfBQwzqCWe8pwaCyTz3Rp/BNzCDCfKvWXx6O631A/ToDtZ9dlTI4Dzc=
