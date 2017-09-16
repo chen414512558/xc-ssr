@@ -1,0 +1,36 @@
+{
+  "name": "czh-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {},
+  "scripts": {
+    "test": "npm run unit",
+    "temptest": "npm run unit && npm run e2e && npm run servece",
+    "unit": "./node_modules/.bin/karma start",
+    "start": "pm2 start app.js",
+    "build": "",
+    "e2e": "NODE_ENV=development node nightwatch.runner.js",
+    "service": "",
+    "gulp:prod": "NODE_ENV=production gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "chromedriver": "^2.32.3",
+    "cross-spawn": "^5.1.0",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "koa": "^2.3.0",
+    "nightwatch": "^0.9.16",
+    "nightwatch-html-reporter": "^2.0.2",
+    "phantomjs-prebuilt": "^2.1.15",
+    "selenium-server": "^3.5.3"
+  },
+  "devDependencies": {
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}

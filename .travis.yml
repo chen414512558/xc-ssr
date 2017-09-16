@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+ - 7.6.0
+
+cache:
+  directories:
+    - "node_modules"
+
+addons:
+  ssh_known_hosts: 47.95.238.142
+  apt:
+    packages:
+    - sshpass
+
+after_success:
+  - export SSHPASS=$DEPLOY_PASS
+  - sshpass -p YongXingChen10 scp -o stricthostkeychecking=no -r ./* root@47.95.238.142:~/mynode/czh-ssr/

@@ -1,0 +1,1 @@
+console.log('状态', process.env.NODE_ENV);
